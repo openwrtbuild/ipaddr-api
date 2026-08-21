@@ -1,0 +1,94 @@
+project_name: ipify-api
+before:
+  hooks:
+    - go mod tidy
+builds:
+  -
+    env:
+      - CGO_ENABLED=0
+    binary: ipify-api
+    flags:
+      - -trimpath
+    ldflags:
+      - -w -s -X main.Version={{.Tag}}
+    goos:
+      - linux
+      - windows
+      - darwin
+      - freebsd
+      - netbsd
+      - openbsd
+      - plan9
+      - dragonfly
+      - solaris
+      - illumos
+      - aix
+    goarch:
+      - 386
+      - amd64
+      - arm
+      - arm64
+      - mips
+      - mips64
+      - mips64le
+      - mipsle
+      - ppc64
+      - ppc64le
+      - riscv64
+      - s390x
+    goarm:
+      - 5
+      - 6
+      - 7
+    gomips:
+      - hardfloat
+      - softfloat
+    ignore:
+      - goos: darwin
+        goarch: 386
+archives:
+  -
+    rlcp: true
+    replacements:
+      darwin: macOS
+      linux: Linux
+      windows: Windows
+      freebsd: FreeBSD
+      netbsd: NetBSD
+      openbsd: OpenBSD
+      plan9: Plan9
+      dragonfly: DragonFly
+      solaris: Solaris
+      aix: AIX
+      386: i386
+      amd64: x86_64
+      arm64: aarch64
+    format_overrides:
+      - goos: windows
+        format: zip
+      - goos: darwin
+        format: zip
+    files:
+      - UNLICENSE
+      - README.md
+      - systemd/*
+    wrap_in_directory: true
+    name_template: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}{{ if .Mips }}_{{ .Mips }}{{ end }}"
+checksum:
+  name_template: 'checksums.txt'
+snapshot:
+  name_template: "{{ .Tag }}-next"
+signs:
+  - artifacts: checksum
+    args: ["--batch", "-u", "{{ .Env.GPG_FINGERPRINT }}", "--output", "${signature}", "--detach-sign", "${artifact}"]
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^docs:'
+      - '^release:'
+source:
+  enabled: true
+  rlcp: true
+  name_template: "{{ .ProjectName }}_source"
+  format: "tar.gz"

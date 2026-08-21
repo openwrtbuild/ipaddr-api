@@ -8,16 +8,21 @@
 package main
 
 import (
-	"github.com/julienschmidt/httprouter"
-	"github.com/rdegges/ipify-api/api"
-	"github.com/rs/cors"
 	"log"
 	"net/http"
 	"os"
+	"strings"
+
+	"github.com/julienschmidt/httprouter"
+	"github.com/rs/cors"
+	"github.com/tech10/ipify-api/api"
 )
+
+var Version string = "development"
 
 // main launches our web server which runs indefinitely.
 func main() {
+	Version = strings.TrimPrefix(Version, "v")
 
 	// Setup all routes.  We only service API requests, so this is basic.
 	router := httprouter.New()
@@ -34,10 +39,9 @@ func main() {
 	// Start the server.
 	port := os.Getenv("PORT")
 	if port == "" {
+		log.Println("This server will start using the default port. If you wish to use a different port, please set the PORT environment variable.")
 		port = "3000"
 	}
-
-	log.Println("Starting HTTP server on port:", port)
+	log.Println("Starting HTTP server on port", port+". Server version, "+Version)
 	log.Fatal(http.ListenAndServe(":"+port, handler))
-
 }
