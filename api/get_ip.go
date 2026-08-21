@@ -1,4 +1,4 @@
-// ipify-api/api
+// ipaddr-api/api
 //
 // This package holds our API handlers which we use to service REST API
 // requests.
@@ -14,7 +14,7 @@ import (
 	"strings"
 
 	"github.com/julienschmidt/httprouter"
-	"github.com/tech10/ipify-api/models"
+	"github.com/openwrtbuild/ipaddr-api/models"
 )
 
 // GetIP returns a user's public facing IP address (IPv4 OR IPv6).

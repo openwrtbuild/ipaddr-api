@@ -1,4 +1,7 @@
-on: [push, pull_request]
+on: 
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
 name: Build
 jobs:
   buildmin:
@@ -13,6 +16,12 @@ jobs:
         check-latest: true
     - name: Build
       run: go build
+    - name: Upload
+      uses: actions/upload-artifact@v4
+      with:
+        name: buildmin-result
+        path: .
+
   buildmax:
     runs-on: ubuntu-latest
     steps:
@@ -26,3 +35,8 @@ jobs:
         cache: true
     - name: Build
       run: go build
+    - name: Upload
+      uses: actions/upload-artifact@v4
+      with:
+        name: buildmax-result
+        path: .

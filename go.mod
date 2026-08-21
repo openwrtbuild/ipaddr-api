@@ -1,4 +1,4 @@
-module github.com/tech10/ipify-api
+module github.com/openwrtbuild/ipaddr-api
 
 go 1.16
 

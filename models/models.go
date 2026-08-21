@@ -1,6 +1,6 @@
-// ipify-api/models
+// ipaddr-api/models
 //
-// This package contains all models used in the ipify service.
+// This package contains all models used in the ipaddr service.
 
 package models
 

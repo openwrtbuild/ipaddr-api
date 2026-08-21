@@ -2,7 +2,7 @@
 # Modify the values for the exec parameter,
 # user, and group.
 [Unit]
-Description=ipify api server
+Description=ipaddr api server
 After=network.target
 
 [Service]
@@ -12,7 +12,7 @@ Group=sample
 Environment="PORT=8080"
 # Bind to port 80 if desired.
 #AmbientCapabilities=CAP_NET_BIND_SERVICE
-ExecStart=/home/sample/bin/ipify-api
+ExecStart=/home/sample/bin/ipaddr-api
 Restart=always
 RestartSec=2s
 

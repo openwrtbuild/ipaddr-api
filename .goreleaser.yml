@@ -1,4 +1,4 @@
-project_name: ipify-api
+project_name: ipaddr-api
 before:
   hooks:
     - go mod tidy
@@ -6,7 +6,7 @@ builds:
   -
     env:
       - CGO_ENABLED=0
-    binary: ipify-api
+    binary: ipaddr-api
     flags:
       - -trimpath
     ldflags:

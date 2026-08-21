@@ -1,8 +1,8 @@
-# ipify-api
+# ipaddr-api forked ipify-api
 
 *A Simple Public IP Address API*
 
-This is a fork of [the original repository](https://github.com/rdegges/ipify-api) with some modifications. A few notible ones are:
+This is a fork of [the original repository](https://github.com/rdegges/ipify-api) and [the forked repository](https://github.com/tech10/ipify-api) with some modifications. A few notible ones are:
 
 - Obtaining the IP address of the connecting client directly, if not running behind a proxy.
 - XML format available on output, if using the correct URL.
@@ -15,7 +15,7 @@ This repository contains the source code for [ipify](https://www.ipify.org), one
 of the largest and most popular IP address API services on the internet. ipify serves over 30 billion requests per month!
 
 
-## What does ipify do?
+## What does ipaddr do?
 
 Have you ever needed to pragmatically get your public IP address? This is quite common for developers provisioning cloud servers, for instance, where you might be creating servers and running bootstrapping software on them without access to server metadata.
 
@@ -24,32 +24,32 @@ Being able to quickly and reliably get access to your public IP address is essen
 In general, there are a number of uses for public IP address information.
 
 
-## What is ipify?
+## What is ipaddr?
 
-ipify is a free API service anyone can use to get their public IP address. It is highly reliable (built on top of [Heroku](https://www.heroku.com/)) and fast. Typical response times (server side) are between 1ms and 10ms.
+ipaddr is a free API service anyone can use to get their public IP address. It is highly reliable (built on top of [Heroku](https://www.heroku.com/)) and fast. Typical response times (server side) are between 1ms and 10ms.
 
-ipify is also fully funded -- it's been running for years and isn't going anywhere. The people behind ipify cover all expenses and maintenance, so you can feel safe integrating with it knowing it won't be disappearing.
+ipaddr is also fully funded -- it's been running for years and isn't going anywhere. The people behind ipaddr cover all expenses and maintenance, so you can feel safe integrating with it knowing it won't be disappearing.
 
-If you'd like to use ipify in your application, no permission is needed. You can immediately start using the service without any restrictions. Simply visit our [public website](https://www.ipify.org) for more information.
+If you'd like to use ipaddr in your application, no permission is needed. You can immediately start using the service without any restrictions. Simply visit our [public website](https://www.ipify.org) for more information.
 
 
 ## What is this project?
 
-This project is the source code that powers the ipify service. ipify is written in the Go programming language for speed and efficiency purposes. You can read an [article](https://www.rdegges.com/2018/to-30-billion-and-beyond/) written by ipify's creator, [Randall Degges](https://twitter.com/rdegges), if you'd like more information.
+This project (ipaddr-api) is from the source code that powers the ipify service. ipify is written in the Go programming language for speed and efficiency purposes. You can read an [article](https://www.rdegges.com/2018/to-30-billion-and-beyond/) written by ipify's creator, [Randall Degges](https://twitter.com/rdegges), if you'd like more information.
 
 If you'd like to contribute to ipify's development, you can do so here. Pull requests are encouraged.
 
-Finally, if you'd like to deploy your own instance of ipify, you can easily do so. Compiling this project will produce a binary that is designed to be run on Heroku. With minor modification, ipify can be ran on any web hosting platform.
+Finally, if you'd like to deploy your own instance of ipaddr-api, you can easily do so. Compiling this project will produce a binary that is designed to be run on Heroku. With minor modification, ipaddr-api can be ran on any web hosting platform.
 
 
-## Building ipify
+## Building ipaddr
 
-To develop and build ipify, you'll need to have the Go programming language setup on your computer. If you don't, you can read more about it [here.](https://golang.org/)
+To develop and build ipaddr, you'll need to have the Go programming language setup on your computer. If you don't, you can read more about it [here.](https://golang.org/)
 
 Once you have Go installed, you'll need to clone this project.
 
 ```bash
-$ git clone https://github.com/tech10/ipify-api.git
+$ git clone https://github.com/openwrtbuild/ipaddr-api.git
 ```
 
 To build the project, change to the project directory and run:
@@ -58,7 +58,7 @@ To build the project, change to the project directory and run:
 $ go build
 ```
 
-This will create the `ipify-api` binary in the current directory that you can use for testing or deployment, if desired. This will not be built as a static binary by default at the moment.
+This will create the `ipaddr-api` binary in the current directory that you can use for testing or deployment, if desired. This will not be built as a static binary by default at the moment.
 
 To build a static binary, execute the following script, which has been tested on Linux and is known to build a static binary correctly.
 
@@ -67,9 +67,9 @@ $ ./build.sh
 ```
 
 
-## Deploying ipify
+## Deploying ipaddr
 
-If you'd like to deploy your own version of ipify to Heroku, you can do so easily by clicking the button below. This will take you to Heroku and let you instantly provision your own copy of the ipify service.
+If you'd like to deploy your own version of ipaddr to Heroku, you can do so easily by clicking the button below. This will take you to Heroku and let you instantly provision your own copy of the ipaddr service.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
@@ -83,10 +83,10 @@ To deploy this application, you can either build the server yourself, or downloa
 By default, the program will listen for incoming requests on port 3000. To change this, run the program with the PORT variable modified. For instance, to listen on port 8080, run the program in the following way.
 
 ```bash
-$ PORT=8080 ./ipify-api
+$ PORT=8080 ./ipaddr-api
 ```
 
-Multiple methods are supported in order to obtain your IP address. You can proxy to the server and use the X-Forwarded-For header through the use of another web server, or you can obtain a direct connection. When you proxy your requests, you have the option of using https support. Otherwise, the program will only listen using the http protocol. Precise instructions on how to set up your web server to proxy requests to the ipify-api server are beyond the scope of this document, but you can easily obtain this information with a simple search in your favorite search engine.
+Multiple methods are supported in order to obtain your IP address. You can proxy to the server and use the X-Forwarded-For header through the use of another web server, or you can obtain a direct connection. When you proxy your requests, you have the option of using https support. Otherwise, the program will only listen using the http protocol. Precise instructions on how to set up your web server to proxy requests to the ipaddr-api server are beyond the scope of this document, but you can easily obtain this information with a simple search in your favorite search engine.
 
 ## Valid endpoints for IP address format
 

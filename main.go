@@ -1,8 +1,8 @@
-// ipify-api
+// ipaddr-api
 //
 // This is the main package which starts up and runs our REST API service.
 //
-// ipify is a simple API service which returns a user's public IP address (it
+// ipaddr is a simple API service which returns a user's public IP address (it
 // supports handling both IPv4 and IPv6 addresses).
 
 package main
@@ -15,7 +15,7 @@ import (
 
 	"github.com/julienschmidt/httprouter"
 	"github.com/rs/cors"
-	"github.com/tech10/ipify-api/api"
+	"github.com/openwrtbuild/ipaddr-api/api"
 )
 
 var Version string = "development"
