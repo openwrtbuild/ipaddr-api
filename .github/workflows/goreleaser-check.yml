@@ -29,10 +29,10 @@ jobs:
       -
         name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v6
-        run: goreleaser check
         with:
           distribution: goreleaser
           version: v1.26.2
+          args: check
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_PAT }}
           GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
