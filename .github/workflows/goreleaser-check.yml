@@ -1,6 +1,9 @@
 name: goreleaser-check
 
 on:
+  push:
+    branches: [ "main" ]
+    paths: [ ".goreleaser.yml" ]
   workflow_dispatch:
 
 jobs:
@@ -31,7 +34,7 @@ jobs:
         uses: goreleaser/goreleaser-action@v6
         with:
           distribution: goreleaser
-          version: v1.26.2
+          version: ~> v2
           args: check
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_PAT }}
