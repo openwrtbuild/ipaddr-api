@@ -51,9 +51,9 @@ archives:
   -
     format_overrides:
       - goos: windows
-        format: zip
+        formats: [ "zip" ]
       - goos: darwin
-        format: zip
+        formats: [ "zip" ]
     files:
       - UNLICENSE
       - README.md
@@ -63,7 +63,7 @@ archives:
 checksum:
   name_template: 'checksums.txt'
 snapshot:
-  name_template: "{{ .Tag }}-next"
+  version_template: "{{ .Tag }}-next"
 signs:
   - artifacts: checksum
     args: ["--batch", "-u", "{{ .Env.GPG_FINGERPRINT }}", "--output", "${signature}", "--detach-sign", "${artifact}"]
