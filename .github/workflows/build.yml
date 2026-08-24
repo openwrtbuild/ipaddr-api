@@ -18,7 +18,7 @@ jobs:
     - name: Build
       run: CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build
     - name: Upload
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: buildmin-result
         path: .
@@ -37,7 +37,7 @@ jobs:
     - name: Build
       run: CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build
     - name: Upload
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: buildmax-result
         path: .
